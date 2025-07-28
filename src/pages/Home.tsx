@@ -57,13 +57,15 @@ const Home: React.FC = () => {
             </a>
             <div className="flex items-center space-x-2">
               <a
-                href="#"
+                href="https://github.com/Animesh-Sharma-work"
+                target="_blank"
                 className="p-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Github className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/animesh-sharma-7145361b7/"
+                target="_blank"
                 className="p-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Linkedin className="w-6 h-6" />
