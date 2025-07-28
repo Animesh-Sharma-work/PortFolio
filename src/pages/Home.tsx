@@ -43,10 +43,6 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            {/* <button className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto justify-center">
-              <Download className="w-5 h-5" />
-              <span>Download Resume</span>
-            </button> */}
             <a
               href={resume}
               download="Animesh-Sharma-Resume.pdf"
