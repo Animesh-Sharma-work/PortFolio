@@ -1,0 +1,189 @@
+.weather-animation-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Position behind the modal content */
+  border-radius: 0.75rem; /* Match the modal's border-radius */
+}
+
+/* --- Base Particle for Rain/Snow/Drizzle --- */
+.particle {
+  position: absolute;
+  top: -20px;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* --- Rain Animation --- */
+.rain .particle {
+  width: 2px;
+  height: 15px;
+  /* CHANGED: Darker blue gradient for better visibility on light backgrounds */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(100, 129, 162, 0.8)
+  );
+  animation-name: fall;
+}
+
+/* --- Drizzle Animation --- */
+.drizzle .particle {
+  width: 1px;
+  height: 10px;
+  /* CHANGED: Darker, subtle blue-gray for better visibility */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(150, 164, 184, 0.8)
+  );
+  animation-name: fall;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* --- Snow Animation --- */
+.snow .particle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* CHANGED: Light gray color instead of white to be visible on a white background */
+  background-color: #cccccc;
+  opacity: 0.8;
+  animation-name: snowfall;
+}
+
+@keyframes snowfall {
+  from {
+    transform: translateY(0vh) translateX(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(105vh) translateX(15px) rotate(360deg);
+  }
+}
+
+/* --- Clouds Animation --- */
+.cloud-particle {
+  position: absolute;
+  /* CHANGED: Light gray gradient for clouds to make them visible */
+  background: linear-gradient(to top, #d4d4d4 5%, #f0f5f9 100%);
+  border-radius: 100px;
+  /* CHANGED: Increased opacity for better visibility */
+  opacity: 0.6;
+  animation-name: move-clouds;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.cloud-particle.base {
+  width: 200px;
+  height: 60px;
+}
+
+.cloud-particle.base:before,
+.cloud-particle.base:after {
+  content: "";
+  position: absolute;
+  /* CHANGED: Light gray for the rest of the cloud shape */
+  background: #d4d4d4;
+  z-index: -1;
+}
+
+.cloud-particle.base:before {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+}
+
+.cloud-particle.base:after {
+  width: 120px;
+  height: 120px;
+  top: -60px;
+  right: 30px;
+  border-radius: 100px;
+}
+
+/* Cloud animation with different speeds and positions */
+.cloud-particle:nth-child(1) {
+  top: 20%;
+  left: -250px;
+  animation-duration: 35s;
+}
+.cloud-particle:nth-child(2) {
+  top: 45%;
+  left: -300px;
+  animation-duration: 45s;
+  animation-delay: -5s;
+}
+.cloud-particle:nth-child(3) {
+  top: 60%;
+  left: -200px;
+  animation-duration: 30s;
+  animation-delay: -10s;
+}
+
+@keyframes move-clouds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 350px));
+  }
+}
+
+/* --- Clear Sky (Sun) Animation --- */
+.clear::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 223, 115, 0.5) 0%,
+    rgba(253, 187, 45, 0) 70%
+  );
+  border-radius: 50%;
+}
+
+/* --- Thunderstorm Animation --- */
+.thunderstorm {
+  background: #2c3e50;
+  animation: flash 3s infinite linear;
+}
+
+@keyframes flash {
+  0%,
+  100%,
+  96% {
+    opacity: 0.3;
+  }
+  97% {
+    opacity: 0.8;
+  }
+  98% {
+    opacity: 0.4;
+  }
+  99% {
+    opacity: 0.9;
+  }
+}
+
+/* --- Atmosphere (Fog/Mist) Animation --- */
+.atmosphere {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(200, 200, 200, 0.2)
+  );
+}
